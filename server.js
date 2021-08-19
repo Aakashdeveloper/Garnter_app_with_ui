@@ -1,6 +1,8 @@
-const express = require('express')
+const express = require('express');
+const download = require('download');
 const app = express();
 const port = process.env.PORT || 7400;
+const fs = require('fs')
 const ipCheck = require('./src/logic/appLogic');
 let clicks = require('./db.json')
 
@@ -15,11 +17,19 @@ app.set('view engine', 'ejs');
 app.get('/',(req,res) => {
     res.render('input',{data:clicks})
 })
-app.post('/ipCount',(req,res)=>{
+app.post('/showOutput',(req,res)=>{
     console.log(clicks.length)
-    //console.log(clicks)
     let output = ipCheck.getFinalOut(clicks)
     res.send(output)
+})
+
+app.post('/download',(req,res)=>{
+    console.log(clicks.length)
+    let output = ipCheck.getFinalOut(clicks)
+    fs.writeFile('result.json',JSON.stringify(output),(err)=>{
+        if(err) throw err;
+        res.download('result.json')
+    })
 })
 
 app.listen(port,(err) => {
