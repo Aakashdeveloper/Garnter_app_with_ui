@@ -1,0 +1,44 @@
+<html>
+    <head>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    </head>
+    <body>
+        <div class="container">
+            <nav class="navbar navbar-inverse">
+                <div class="container-fluid">
+                  <div class="navbar-header">
+                    <a class="navbar-brand" href="https://aakashhanda.me" target="_blank">Aakash Handa</a>
+                  </div>
+                  <ul class="nav navbar-nav">
+                    <li class="active"><a href="https://aakashhanda.me" target="_blank">About Me</a></li>
+                  </ul>
+                </div>
+            </nav>
+            <form action="/ipCount" method="POST">
+                <button class="btn btn-info btn-block" type="submit">Calculate</button>
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>IP</th>
+                            <th>Timestamp</th>
+                            <th>Amount</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <% for(i=0;i<data.length;i++){%>
+                            <tr>
+                                <td><%=data[i].ip%></td>
+                                <td><%=data[i].timestamp%></td>
+                                <td><%=data[i].amount%></td>
+                            </tr>
+                        <%}%>
+                    </tbody>
+                </table>
+            </form>
+            
+        </div>
+        
+    </body>
+</html>
