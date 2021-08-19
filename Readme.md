@@ -11,6 +11,13 @@
 # For Testing 
 * Jest
 
+# To start app
+* npm start
+* localhost:7400
+
+# To Test app
+* npm run test
+
 # Final Output
 
 [
@@ -40,10 +47,5 @@
   }
 ]
 
-# To start app
-* npm start
-* localhost:7400
 
-# To Test app
-* npm run test
 
